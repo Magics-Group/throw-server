@@ -1,16 +1,11 @@
-var peerflix = require('peerflix');
-var Promise = require('bluebird');
-var readTorrent = require('read-torrent');
-var getPort = require('get-port');
-var _ = require('lodash');
-var path = require('path');
-var os = require('os');
-var fs = require('fs');
+import peerflix from 'peerflix'
+import Promise from 'bluebird'
+import path from 'path'
+import readTorrent from 'read-torrent'
+import getPort from 'get-port'
+import os from 'os'
 
-const temp = path.join(os.tmpdir(), 'throw-server')
-if (!fs.existsSync(temp)){
-    fs.mkdirSync(temp)
-}
+const temp = os.tmpdir()
 
 module.exports = {
     streams: {},
@@ -19,16 +14,16 @@ module.exports = {
 
         return Promise.all([this.read(torrent), getPort()])
             .spread((torrentInfo, port) => {
-                var engine = peerflix(torrentInfo, {
+                let engine = peerflix(torrentInfo, {
                     tracker: true,
                     port,
                     tmp: temp,
                     buffer: (1.5 * 1024 * 1024).toString(),
-                    connections: 300
+                    connections: 200
                 });
                 this.streams[engine.infoHash] = engine;
                 engine['stream-port'] = port;
-        
+
                 return engine
             });
 

@@ -1,25 +1,36 @@
 {
   "name": "throw-server",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "AZURE_STORAGE_ACCOUNT='nwhacks' AZURE_STORAGE_ACCESS_KEY='nHhogtE2uXRaCN3yX72VNmPpKjI+3RtNsX1YnuhjWvAqIcMCDu93jSinqGv/QXRTJCdJzySCJWATs0oqUih6Pg==' nodemon server.js"
+  "version": "0.0.1",
+  "description": "",
+  "author": {
+    "name": "Luigi Poole",
+    "email": "luigipoole@outlook.com"
   },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "build/app.js",
+  "license": "GPL-3.0",
   "dependencies": {
-    "azure-storage": "^0.8.0",
     "bluebird": "^3.3.3",
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "firebase": "^2.4.1",
+    "express": "^4.13.4",
     "get-port": "^2.1.0",
-    "jade": "~1.11.0",
     "lodash": "^4.5.1",
-    "morgan": "~1.6.1",
-    "node-torrent": "^0.2.1",
+    "needle": "^1.0.0",
     "peerflix": "^0.32.4",
-    "read-torrent": "^1.3.0",
-    "serve-favicon": "~2.3.0"
+    "read-torrent": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
+    "grunt-concurrent": "^2.1.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-watch-chokidar": "^1.0.0",
+    "grunt-newer": "^1.1.1",
+    "grunt-nodemon": "^0.4.0",
+    "load-grunt-tasks": "^3.3.0"
   }
 }
