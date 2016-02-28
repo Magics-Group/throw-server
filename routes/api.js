@@ -61,7 +61,7 @@ router.get('/download', function(req, res, next) {
 
 router.post('/download', function(req, res, next) {
 	var magnetLink = req.query.magnet;
-	var oauth = req.query.oauthl
+	var oauth = req.query.oauth;
 
 	torrent.init(magnetLink).then(engine => {console.log(engine)})
 });
