@@ -4,6 +4,9 @@ var router = express.Router();
 var Firebase = require('firebase');
 var dataRef = new Firebase('https://luminous-inferno-104.firebaseio.com/');
 
+ var azure = require('azure-storage');
+ var blobSvc = azure.createBlobService();
+
 /* api endpoints. */
 router.get('/users', function(req, res, next) {
 	res.status(200).send('users GET');
@@ -34,8 +37,16 @@ router.post('/users', function(req, res, next) {
 			if (err) {
 				//handle error
 			} else {
+				//create a storage container for the user
+				blobSvc.createContainerIfNotExists(oauth, function(error, result, response){
+					if(!error){
+						console.log('Container Created');
+					} else {
+						console(err);
+					}
+				});
+
 				res.status(200).send('User Created');
-				return;
 			}
 		});
 	})

@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "AZURE_STORAGE_ACCOUNT='nwhacks' AZURE_STORAGE_ACCESS_KEY='nHhogtE2uXRaCN3yX72VNmPpKjI+3RtNsX1YnuhjWvAqIcMCDu93jSinqGv/QXRTJCdJzySCJWATs0oqUih6Pg==' nodemon server.js"
   },
   "dependencies": {
+    "azure-storage": "^0.8.0",
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
